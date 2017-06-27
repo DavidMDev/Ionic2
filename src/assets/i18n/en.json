@@ -6,5 +6,8 @@
   "LOGGED_OUT": "You have been disconnected",
   "REQUIRES_LOG_IN": "You need to log in to do that",
   "LOG_IN": "Log in",
-  "OK": "Ok"
+  "OK": "Ok",
+  "MENU": "Menu",
+  "HOME": "Home",
+  "CLOSE_MENU": "Close menu"
 }
