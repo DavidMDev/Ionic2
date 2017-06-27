@@ -1,0 +1,10 @@
+{
+  "welcome": "Welcome!",
+  "EMPTY_USERNAME_PASSWORD": "Empty username or password",
+  "BAD_USERNAME_PASSWORD": "Bad username or password",
+  "ERROR": "Error",
+  "LOGGED_OUT": "You have been disconnected",
+  "REQUIRES_LOG_IN": "You need to log in to do that",
+  "LOG_IN": "Log in",
+  "OK": "Ok"
+}

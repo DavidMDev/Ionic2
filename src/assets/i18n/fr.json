@@ -1,0 +1,10 @@
+{
+  "welcome":"Bienvenue!!",
+  "EMPTY_USERNAME_PASSWORD": "Nom d'utilisateur ou mot de passe vide",
+  "BAD_USERNAME_PASSWORD": "Mauvais nom d'utilisateur ou mot de passe",
+  "ERROR": "Erreur",
+  "LOGGED_OUT": "Vous avez été déconnecté",
+  "REQUIRES_LOG_IN": "Vous avez besoin de vous connecter pour faire ça",
+  "LOG_IN": "Se connecter",
+  "OK": "Ok"
+}
