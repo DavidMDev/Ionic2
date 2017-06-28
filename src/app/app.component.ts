@@ -31,6 +31,14 @@ export class MyApp {
     this.nav.push(page);
   }
 
+  switchLanguage (){
+    if(this.translate.currentLang == 'en'){
+      this.translate.use('fr');
+    } else {
+      this.translate.use('en');
+    }
+  }
+
   constructor(private translate: TranslateService, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

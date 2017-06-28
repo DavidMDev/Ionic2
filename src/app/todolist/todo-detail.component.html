@@ -1,15 +1,16 @@
-<div  class="container" *ngIf="task">
+<ion-list *ngIf="task">
   <h2>{{task.name}} details!</h2>
-  <div>
-    <label>id: </label>{{task.id}}</div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="task.name" class="form-control input-md" placeholder="name" />
-  </div>
-  <div>
-  <label>description: </label>
-  <input [(ngModel)]="task.description" class="form-control input-md" placeholder="description" />
-</div>
-  <button class="btn btn-default" (click)="goBack()">Back</button>
-  <button class="btn btn-default" (click)="save()">Save</button>
-</div>
+  <ion-item>
+    id: {{task.id}}
+  </ion-item>
+  <ion-item>
+    <ion-label fixed>{{'TODO_NAME' | translate}}</ion-label>
+    <ion-input [(ngModel)]="task.name" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label fixed>{{'TODO_DESCRIPTION' | translate}}</ion-label>
+  <ion-input [(ngModel)]="task.description"></ion-input>
+</ion-item>
+  <button ion-button full (click)="goBack()">{{'CANCEL' | translate}}</button>
+  <button ion-button full (click)="save()">{{'SAVE' | translate}}</button>
+</ion-list>

@@ -11,7 +11,7 @@ export class TodoService {
   private tasksUrl = Configuration.API_HOST + "/tasks";
 
   constructor(private http: Http) {
-}
+  }
 
   getTasks(): Promise<Task[]> {
     return this.http.get(this.tasksUrl)

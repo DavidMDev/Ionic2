@@ -1,10 +1,11 @@
 import {Http, Headers} from "@angular/http";
-import {Injectable, ViewChild} from "@angular/core";
+import {Injectable} from "@angular/core";
 import {LocalStorageService} from 'angular-2-local-storage';
 import {AlertController, NavController} from 'ionic-angular';
 import {Configuration} from "../config/config";
 import 'rxjs/add/operator/toPromise';
 import {TranslateService} from "@ngx-translate/core";
+import {LoginComponent} from "./../users/login/login.component";
 
 @Injectable()
 export class HttpService {
@@ -12,6 +13,7 @@ export class HttpService {
   contentTypeValue = 'application/json';
   csrfHeader = 'X-XSRF-TOKEN';
   serverURL = Configuration.API_HOST + '/api/';
+  loginPage = LoginComponent;
   public userLogged = false;
 
   constructor(private translationService: TranslateService, public navCtrl: NavController, private alertController: AlertController, private http: Http, private localStorageService: LocalStorageService) {
@@ -114,8 +116,7 @@ export class HttpService {
 
   redirectToLogIn() {
     this.logOut();
-    //this.navCtrl.push(LoginPage);
-    console.log('Moving to login page');
+    this.navCtrl.push(this.loginPage);
   }
 
   handleError(reject, error) {
