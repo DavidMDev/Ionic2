@@ -1,66 +1,48 @@
-<div class="container">
 <form [formGroup]="signupForm" (ngSubmit)="signup($event)" class="form-horizontal">
-  <fieldset>
-    <h1>Sign up</h1>
+  <ion-list>
+    <h1 ion-item>{{'SIGN_UP' | translate}}</h1>
     <!-- First name input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="firstName">First name</label>
-      <div class="col-md-4">
-        <input id="firstName" type="text" placeholder="First name" class="form-control input-md"
-               required="true" formControlName="firstName">
-      </div>
-    </div>
+    <ion-item>
+      <ion-label>{{'FIRST_NAME' | translate}}</ion-label>
+      <ion-input id="firstName" type="text" required="true" formControlName="firstName"></ion-input>
+    </ion-item>
     <!-- Last name input -->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="lastName">Last name</label>
-      <div class="col-md-4">
-        <input id="lastName" type="text" placeholder="Last name" class="form-control input-md"
-               required="true" formControlName="lastName">
-      </div>
-    </div>
+    <ion-item>
+      <ion-label>{{'LAST_NAME' | translate}}</ion-label>
+      <ion-input id="lastName" type="text"
+                 required="true" formControlName="lastName"></ion-input>
+    </ion-item>
     <!-- Username input -->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="username">Username</label>
-      <div class="col-md-4">
-        <input id="username" type="text" placeholder="Username" class="form-control input-md"
-               required="true" formControlName="username">
-      </div>
-    </div>
+    <ion-item>
+      <ion-label>{{'USERNAME' | translate}}</ion-label>
+      <ion-input id="username" type="text"
+                 required="true" formControlName="username"></ion-input>
+    </ion-item>
 
     <!-- Email input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="email">Email</label>
-      <div class="col-md-4">
-        <input id="email" type="text" placeholder="Email" class="form-control input-md"
-               required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" formControlName="email">
-      </div>
-    </div>
+    <ion-item>
+      <ion-label>{{'EMAIL' | translate}}</ion-label>
+      <ion-input id="email" type="text"
+                 required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" formControlName="email"></ion-input>
+    </ion-item>
 
     <!-- Password input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="password">Password</label>
-      <div class="col-md-4">
-        <input id="password" type="password" placeholder="Password"
-               class="form-control input-md" required="true" formControlName="password">
-      </div>
-    </div>
+    <ion-item>
+      <ion-label>{{'PASSWORD' | translate}}</ion-label>
+      <ion-input id="password" type="password"
+                 required="true" formControlName="password"></ion-input>
+    </ion-item>
     <!-- Repeat password input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="repeatpassword">Repeat password</label>
-      <div class="col-md-4">
-        <input id="repeatpassword" type="password" placeholder="Repeat password"
-               class="form-control input-md" required="true" formControlName="repeatPassword">
-      </div>
-    </div>
+    <ion-item>
+      <ion-label>{{'REPEAT_PASSWORD' | translate}}</ion-label>
+      <ion-input id="repeatpassword" type="password"
+                 required="true" formControlName="repeatPassword"></ion-input>
+    </ion-item>
 
-    <!-- Button -->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="signup"></label>
-      <div class="col-md-4">
-        <button id="signup" class="btn btn-success" type="submit">Sign Up</button>
-      </div>
-    </div>
+    <!-- submit-button -->
+    <ion-item>
+      <button ion-button full id="signup" type="submit">{{'SIGN_UP' | translate}}</button>
+    </ion-item>
 
-  </fieldset>
+  </ion-list>
 </form>
-</div>

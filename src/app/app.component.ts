@@ -6,6 +6,14 @@ import {TranslateService} from '@ngx-translate/core';
 import {TodoComponent} from './todolist/todo.component';
 
 import {HomePage} from './home/home';
+
+import {LoginComponent} from "./users/login/login.component";
+import {HttpService} from "./http/http.service";
+import {ToastService} from "./toast/toast.service";
+import {HelloworldComponent} from "./helloworld/helloworld.component";
+import {SignupComponent} from "./users/login/signup.component";
+import {UsersComponent} from "./users/profile/users-profile.component";
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -13,6 +21,10 @@ import {HomePage} from './home/home';
 export class MyApp {
   homePage = HomePage;
   todoPage = TodoComponent;
+  loginPage = LoginComponent;
+  helloworldPage = HelloworldComponent;
+  signupPage = SignupComponent;
+  profilePage = UsersComponent;
 
   rootPage: any = HomePage;
   @ViewChild(Nav) nav;
@@ -31,6 +43,10 @@ export class MyApp {
     this.nav.push(page);
   }
 
+  myProfile(){
+    this.nav.push(this.profilePage, {user: 0});
+  }
+
   switchLanguage (){
     if(this.translate.currentLang == 'en'){
       this.translate.use('fr');
@@ -39,7 +55,16 @@ export class MyApp {
     }
   }
 
-  constructor(private translate: TranslateService, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  public isLogged(){
+    return this.httpService.userLogged;
+  }
+
+  public logOut(){
+    this.httpService.logOut();
+    this.toastService.presentAlert('LOGGED_OUT');
+  }
+
+  constructor(private toastService: ToastService, private httpService: HttpService, private translate: TranslateService, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.

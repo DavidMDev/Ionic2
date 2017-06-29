@@ -29,7 +29,7 @@ export class AddressDetailComponent implements OnInit, OnDestroy {
   public save(): void {
     this.addressService.modifyAddress(this.address).then(address => {
       this.address = address;
-      this.toast.presentToast('ADDRESS_UPDATED');
+      this.toast.presentAlert('ADDRESS_UPDATED');
     });
   }
 

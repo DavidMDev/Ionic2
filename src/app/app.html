@@ -9,6 +9,7 @@
   </ion-navbar>
 </ion-header>
 
+<!-- side menu -->
 <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar>
@@ -23,6 +24,21 @@
       <button ion-item (click)="openPage(todoPage)" menuToggle>
         {{'TODO' | translate}}
       </button>
+      <button ion-item (click)="openPage(helloworldPage)" menuToggle>
+        {{'HELLO_WORLD' | translate}}
+      </button>
+      <button *ngIf="!isLogged()" ion-item (click)="openPage(loginPage)" menuToggle>
+        {{'LOG_IN' | translate}}
+      </button>
+      <button *ngIf="!isLogged()" ion-item (click)="openPage(signupPage)" menuToggle>
+        {{'SIGN_UP' | translate}}
+      </button>
+      <button *ngIf="isLogged()" ion-item (click)="myProfile()" menuToggle>
+        {{'MY_PROFILE' | translate}}
+      </button>
+      <button *ngIf="isLogged()" ion-item (click)="logOut()" menuToggle>
+      {{'LOG_OUT' | translate}}
+    </button>
       <button ion-item (click)="switchLanguage()">
         {{'SWITCH_LANG' | translate}}
       </button>
@@ -33,6 +49,7 @@
   </ion-content>
 </ion-menu>
 
+<!-- app content -->
 <ion-content padding>
 <ion-nav id="nav" #content [root]="rootPage"></ion-nav>
 </ion-content>

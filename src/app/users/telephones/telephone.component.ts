@@ -25,13 +25,13 @@ export class TelephoneComponent implements OnInit {
     this.telephones = null;
   }
 
-  constructor( private telephoneService: TelephoneService, public navCtrl: NavController, private toast: ToastService) {
+  constructor(private telephoneService: TelephoneService, public navCtrl: NavController, private toast: ToastService) {
   }
 
   delete(phone: Telephone): void {
     this.telephoneService.deleteTelephone(phone.id).then((telephones) => {
       this.telephones = telephones;
-      this.toast.presentToast('TELEPHONE_DELETED');
+      this.toast.presentAlert('TELEPHONE_DELETED');
     });
   }
 
@@ -40,14 +40,18 @@ export class TelephoneComponent implements OnInit {
     if (/^\d+$/.test(number)) {
       this.telephoneService.createTelephone(number, type).then(telephones => {
         this.telephones = telephones;
-        this.toast.presentToast('TELEPHONE_CREATED');
+        this.toast.presentAlert('TELEPHONE_CREATED');
       });
     } else {
-      this.toast.presentToast('TELEPHONE_CONTAINS_LETTERS');
+      this.toast.presentAlert('TELEPHONE_CONTAINS_LETTERS');
     }
   }
 
   goto(telephone: Telephone): void {
     this.navCtrl.push(this.telephoneDetailComponent, {telephone: telephone.id});
+  }
+
+  goBack() {
+    this.navCtrl.pop();
   }
 }

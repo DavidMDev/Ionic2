@@ -1,17 +1,22 @@
 import {TranslateService} from "@ngx-translate/core";
-import {ToastController} from "ionic-angular";
+import {AlertController} from "ionic-angular";
+import {Injectable} from "@angular/core";
 
+@Injectable()
 export class ToastService {
-  constructor (public toastCtrl: ToastController, private translationService: TranslateService){
+  constructor (public alertCtrl: AlertController, public translationService: TranslateService){
   }
 
-  public presentToast(message:string) {
-    this.translationService.get(message).subscribe(translation => {
-      let toast = this.toastCtrl.create({
-        message: translation,
-        duration: 3000
+  public presentAlert(message:string) {
+    let translateArray = [];
+    translateArray.push(message);
+    translateArray.push('OK');
+    this.translationService.get(translateArray).subscribe(translations => {
+      let alert = this.alertCtrl.create({
+        message: translations[message],
+        buttons: [translations.OK]
       });
-      toast.present();
+      alert.present();
     });
   }
 }

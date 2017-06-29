@@ -31,7 +31,7 @@ export class TelephoneDetailComponent implements OnInit, OnDestroy {
   public save(): void {
     this.telephoneService.modifyTelephone(this.telephone).then(telephone => {
       this.telephone = telephone;
-      this.toast.presentToast('TELEPHONE_UPDATED');
+      this.toast.presentAlert('TELEPHONE_UPDATED');
     });
   }
 

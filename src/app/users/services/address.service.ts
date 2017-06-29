@@ -9,7 +9,7 @@ export class AddressService {
   constructor(private httpService: HttpService) {
   }
 
-  public getAddresss(): Promise<Address[]> {
+  public getAddresses(): Promise<Address[]> {
     return new Promise((resolve, reject) => {
       this.httpService.get(this.addressUrl)
         .then(res => {

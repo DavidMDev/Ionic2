@@ -32,19 +32,19 @@ export class UserEditComponent implements OnInit {
         let requestObject = {password: '', lastName: user.lastName, firstName: user.firstName, username: user.username};
         requestObject.password = password;
         this.usersService.modifyUser(requestObject).then((result) => {
-          this.toast.presentToast('PROFILE_SAVED');
+          this.toast.presentAlert('PROFILE_SAVED');
         }).catch((err) => {
-          this.toast.presentToast(err.message);
+          this.toast.presentAlert(err.message);
         });
       } else {
-        this.toast.presentToast('PASSWORDS_NOT_EQUAL');
+        this.toast.presentAlert('PASSWORDS_NOT_EQUAL');
       }
     } else {
       let requestObject = {lastName: user.lastName, firstName: user.firstName, username: user.username};
       this.usersService.modifyUser(requestObject).then((result) => {
-        this.toast.presentToast('PROFILE_SAVED');
+        this.toast.presentAlert('PROFILE_SAVED');
       }).catch((err) => {
-        this.toast.presentToast(err.message);
+        this.toast.presentAlert(err.message);
       });
     }
   }

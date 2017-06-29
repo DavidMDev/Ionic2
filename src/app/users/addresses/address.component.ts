@@ -15,6 +15,10 @@ export class AddressComponent implements OnInit {
   addressDetailComponent = AddressDetailComponent;
 
   ngOnInit(): void {
+    this.addresses = [];
+    this.addressService.getAddresses().then(addresses => {
+      this.addresses = addresses;
+    });
   }
 
   ngOnDestroy(): void {
@@ -22,7 +26,7 @@ export class AddressComponent implements OnInit {
   }
 
   constructor(private addressService: AddressService, public navCtrl: NavController, private toast: ToastService) {
-    this.addressService.getAddresss().then(addresses => {
+    this.addressService.getAddresses().then(addresses => {
       this.addresses = addresses;
     });
   }
@@ -30,7 +34,7 @@ export class AddressComponent implements OnInit {
   delete(address: Address): void {
     this.addressService.deleteAddress(address.id).then((addresses) => {
       this.addresses = addresses;
-      this.toast.presentToast('ADDRESS_DELETED');
+      this.toast.presentAlert('ADDRESS_DELETED');
     });
   }
 
@@ -46,11 +50,15 @@ export class AddressComponent implements OnInit {
       houseNumber,
       city).then(addresses => {
       this.addresses = addresses;
-      this.toast.presentToast('ADDRESS_CREATED');
+      this.toast.presentAlert('ADDRESS_CREATED');
     });
   }
 
   goto(address: Address): void {
     this.navCtrl.push(this.addressDetailComponent, {address: address.id});
+  }
+
+  goBack(){
+    this.navCtrl.pop();
   }
 }

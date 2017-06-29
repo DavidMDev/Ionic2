@@ -36,7 +36,7 @@ export class TodoComponent implements OnInit {
     this.todoService.create(name, description)
       .then(tasks => {
         this.tasks = tasks;
-        this.toast.presentToast('TASK_ADDED');
+        this.toast.presentAlert('TASK_ADDED');
       });
   }
 
@@ -45,7 +45,7 @@ export class TodoComponent implements OnInit {
       .delete(task.id)
       .then((tasks) => {
         this.tasks = tasks;
-        this.toast.presentToast('TODO_DELETED');
+        this.toast.presentAlert('TODO_DELETED');
       }).catch(res => console.log(res));
   }
 

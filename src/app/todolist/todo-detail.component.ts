@@ -22,7 +22,7 @@ export class TodoDetailComponent{
   public save(): void{
     this.todoService.modifyTask(this.task).then(task => {
       this.task = task;
-      this.toast.presentToast('TODO_UPDATED');
+      this.toast.presentAlert('TODO_UPDATED');
     })
   }
 

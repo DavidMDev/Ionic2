@@ -29,14 +29,14 @@ export class SignupComponent {
   public signup(event): void {
     let formData = this.signupForm.value;
     if(formData.password != formData.repeatPassword){
-      this.toast.presentToast('PASSWORDS_NOT_EQUAL');
+      this.toast.presentAlert('PASSWORDS_NOT_EQUAL');
     } else {
       this.userService.createUser(formData.firstName, formData.lastName, formData.username, formData.email, formData.password).then( result => {
         if (result) {
-          this.navCtrl.push(this.homePage).then(() => this.toast.presentToast('SIGNED_UP'));
+          this.navCtrl.push(this.homePage).then(() => this.toast.presentAlert('SIGNED_UP'));
         }
       }).catch(error => {
-        this.toast.presentToast(error);
+        this.toast.presentAlert(error);
       });
     }
   }

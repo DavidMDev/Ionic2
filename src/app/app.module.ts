@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {ErrorHandler, NgModule} from '@angular/core';
-import {IonicApp, IonicErrorHandler, IonicModule, AlertController, ToastController} from 'ionic-angular';
-import {HttpModule, Http} from '@angular/http';
+import {IonicApp, IonicErrorHandler, IonicModule, AlertController} from 'ionic-angular';
+import {HttpModule, Http, JsonpModule} from '@angular/http';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {StatusBar} from '@ionic-native/status-bar';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
@@ -26,6 +26,9 @@ import {TelephoneDetailComponent} from "./users/telephones/telephone-detail.comp
 import {UsersComponent} from "./users/profile/users-profile.component";
 import {UserEditComponent} from "./users/profile/user-profile-edit.component";
 import {ToastService} from "./toast/toast.service";
+import {FormsModule} from "@angular/forms";
+import {HttpService} from "./http/http.service";
+import {HelloworldComponent} from "./helloworld/helloworld.component";
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -44,7 +47,8 @@ export function HttpLoaderFactory(http: Http) {
     TelephoneComponent,
     TelephoneDetailComponent,
     UsersComponent,
-    UserEditComponent
+    UserEditComponent,
+    HelloworldComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +65,7 @@ export function HttpLoaderFactory(http: Http) {
       prefix: 'web-atrio-app',
       storageType: 'localStorage'
     }),
+    JsonpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -76,7 +81,8 @@ export function HttpLoaderFactory(http: Http) {
     TelephoneComponent,
     TelephoneDetailComponent,
     UsersComponent,
-    UserEditComponent
+    UserEditComponent,
+    HelloworldComponent
   ],
   providers: [
     TodoService,
@@ -86,10 +92,10 @@ export function HttpLoaderFactory(http: Http) {
     ToastService,
     StatusBar,
     SplashScreen,
+    HttpService,
+    FormsModule,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AlertController,
-    ToastController
-  ]
+    AlertController]
 })
 export class AppModule {
 }

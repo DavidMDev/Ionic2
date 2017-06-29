@@ -1,44 +1,28 @@
-<div class="row" *ngIf="telephones.length > 0">
-  <div class="col-md-6">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4>Phone numbers</h4>
-      </div>
-      <ul class="list-group">
-        <li class="list-group-item" *ngFor="let phone of telephones">
-          <button class="btn btn-default" (click)="delete(phone);"><span class="glyphicon glyphicon-remove"></span>
-          </button>
-          <button class="btn btn-default" (click)="goto(phone)"><span class="glyphicon glyphicon-edit"></span></button>
-          {{phone.number}}, {{phone.type}}
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-<div>
-  <form class="form-horizontal">
-    <fieldset>
-      <!-- Form Name -->
-      <legend>Add telephone</legend>
+<ion-list *ngIf="telephones.length > 0">
+  <h4 ion-item>Phone numbers</h4>
+  <ion-item *ngFor="let phone of telephones">
+    {{phone.number}}, {{phone.type}}
+    <ion-icon name="trash" (click)="delete(phone);"></ion-icon>
+    <ion-icon name="information-circle" (click)="goto(phone)"></ion-icon>
+  </ion-item>
+</ion-list>
 
-      <div class="form-group">
-        <label class="col-md-4 control-label pull-left" for="number">Number</label>
-        <div class="col-md-4 pull-left">
-          <input id="number" name="number" type="text" placeholder="Number" class="form-control input-md" required="true" #number/>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="col-md-4 control-label pull-left" for="type">Type</label>
-        <div class="col-md-4 pull-left">
-          <input id="type" name="type" type="text" placeholder="Type" class="form-control input-md" required="true"
-                 #type/>
-        </div>
-      </div>
-    </fieldset>
-  </form>
-  <button class="btn btn-primary"
-          (click)="add(number.value, type.value); number.value=''; type.value='';">
-    Add
-  </button>
-</div>
+<ion-list>
+  <ion-item>{{'TELEPHONE_ADD' | translate}}</ion-item>
+  <ion-item>
+    <ion-input id="number" name="number" type="text" placeholder="{{'TELEPHONE_NUMBER' | translate}}" required="true"
+               #number></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input id="type" name="type" type="text" placeholder="{{'TELEPHONE_TYPE' | translate}}" required="true"
+               #type></ion-input>
+  </ion-item>
+  <ion-item>
+    <button ion-button full (click)="add(number.value, type.value); number.value=''; type.value='';">
+      {{'SUBMIT' | translate}}
+    </button>
+  </ion-item>
+  <ion-item>
+    <button ion-button full type="button" (click)="goBack()">{{'CANCEL' | translate}}</button>
+  </ion-item>
+</ion-list>

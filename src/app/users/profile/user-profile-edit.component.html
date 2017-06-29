@@ -1,23 +1,13 @@
-<div class="container">
-  <div *ngIf="user">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3>{{user.username}}</h3>
-          </div>
-          <ul class="list-group">
-            <li class="list-group-item">Email : {{user.email}}</li>
-            <li class="list-group-item">First name : <input type="text" class="form-control input-md" [(ngModel)]="user.firstName" required/></li>
-            <li class="list-group-item">Last name : <input type="text" class="form-control input-md" [(ngModel)]="user.lastName" required/></li>
-            <li class="list-group-item">Roles : {{user.roles}}</li>
-            <li class="list-group-item">Password : <input type="password" class="form-control input-md" [(ngModel)]="password"/></li>
-            <li class="list-group-item">Repeat Password : <input type="password" class="form-control input-md" [(ngModel)]="repeatPassword"/></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <button (click)="save(user, password, repeatPassword)" class="btn btn-default">Save</button>
-    <button (click)="back()" class="btn btn-default">Back</button>
-  </div>
-</div>
+<ion-list *ngIf="user">
+    <ion-item>
+            <h3 ion-item>{{user.username}}</h3>
+            <ion-item>Email : {{user.email}}</ion-item>
+      <ion-item><ion-input type="text" placeholder="{{'FIRST_NAME' | translate}}" [(ngModel)]="user.firstName" required></ion-input></ion-item>
+      <ion-item><ion-input type="text" placeholder="{{'LAST_NAME' | translate}}" [(ngModel)]="user.lastName" required></ion-input></ion-item>
+            <ion-item>{{'ROLES' | translate}} : {{user.roles}}</ion-item>
+      <ion-item><ion-input type="password" placeholder="{{'PASSWORD' | translate}}" [(ngModel)]="password"></ion-input></ion-item>
+      <ion-item><ion-input type="password" placeholder="{{'REPEAT_PASSWORD' | translate}}" [(ngModel)]="repeatPassword"></ion-input></ion-item>
+    </ion-item>
+    <button ion-button full (click)="save(user, password, repeatPassword)">{{'SAVE' | translate}}</button>
+    <button ion-button full (click)="back()">{{'CANCEL' | translate}}</button>
+  </ion-list>

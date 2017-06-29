@@ -3,17 +3,18 @@ import {User} from "../user";
 import {UserService} from "../services/users.service";
 import {NavParams, NavController} from "ionic-angular";
 import {UserEditComponent} from "./user-profile-edit.component";
+import {TelephoneComponent} from "../telephones/telephone.component";
+import {AddressComponent} from "../addresses/address.component";
 
 @Component({
   selector: 'users',
-  templateUrl: 'users-profile.component.html',
-  styleUrls: ['../users.component.css']
+  templateUrl: 'users-profile.component.html'
 })
 
 export class UsersComponent implements OnInit {
   user: User;
-  phoneMenu = false;
-  addressMenu = false;
+  phoneMenu = TelephoneComponent;
+  addressMenu = AddressComponent;
   editProfilePage = UserEditComponent;
 
   ngOnInit(): void {
@@ -39,15 +40,15 @@ export class UsersComponent implements OnInit {
     this.user = null;
   }
 
-  phonesMenuEnable(): void {
-    this.phoneMenu ? this.phoneMenu = false : this.phoneMenu = true;
+  public managePhones(): void {
+    this.navCtrl.push(this.phoneMenu);
   }
 
-  addressMenuEnable(): void{
-    this.addressMenu ? this.addressMenu = false : this.addressMenu = true;
+  public manageAddresses(): void{
+    this.navCtrl.push(this.addressMenu);
   }
 
-  public editProfile(): void{
+  public manageProfile(): void{
     this.navCtrl.push(this.editProfilePage);
   }
 }
