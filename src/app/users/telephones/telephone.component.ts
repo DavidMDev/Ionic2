@@ -43,7 +43,7 @@ export class TelephoneComponent implements OnInit {
         this.toast.presentAlert('TELEPHONE_CREATED');
       });
     } else {
-      this.toast.presentAlert('TELEPHONE_CONTAINS_LETTERS');
+      this.toast.presentAlert('TELEPHONE_INVALID_NUMBER');
     }
   }
 

@@ -13,6 +13,7 @@ import {ToastService} from "./toast/toast.service";
 import {HelloworldComponent} from "./helloworld/helloworld.component";
 import {SignupComponent} from "./users/login/signup.component";
 import {UsersComponent} from "./users/profile/users-profile.component";
+import {ChatComponent} from "./chat/chat.component";
 
 @Component({
   templateUrl: 'app.html'
@@ -25,6 +26,7 @@ export class MyApp {
   helloworldPage = HelloworldComponent;
   signupPage = SignupComponent;
   profilePage = UsersComponent;
+  chatPage = ChatComponent;
 
   rootPage: any = HomePage;
   @ViewChild(Nav) nav;

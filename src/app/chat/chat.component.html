@@ -1,9 +1,14 @@
-<ul id="messages">
-  <li *ngFor="let message of messages">
-    <span [innerHTML]="isSystemMessage(message)"></span>
-  </li>
-</ul>
-<form action="">
-  <input [(ngModel)]="chatBox" [ngModelOptions]="{standalone: true}" autocomplete="off" />
-  <button (click)="send()">Send</button>
-</form>
+
+  <ion-scroll scrollY="true" style="width: 100%; height: 80%;">
+    <div *ngFor="let message of messages">
+      <ion-item [innerHTML]="isSystemMessage(message)"></ion-item>
+    </div>
+  </ion-scroll>
+<ion-footer>
+  <ion-toolbar>
+    <div>
+      <ion-input [(ngModel)]="chatBox" [ngModelOptions]="{standalone: true}" autocomplete="off" placeholder="{{'CHAT_MESSAGE' | translate}}"></ion-input>
+      <button ion-button full (click)="send()">{{'CHAT_SEND' | translate}}</button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

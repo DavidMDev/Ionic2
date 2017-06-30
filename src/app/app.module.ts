@@ -29,6 +29,8 @@ import {ToastService} from "./toast/toast.service";
 import {FormsModule} from "@angular/forms";
 import {HttpService} from "./http/http.service";
 import {HelloworldComponent} from "./helloworld/helloworld.component";
+import {ChatComponent} from "./chat/chat.component";
+import {ChatService} from "./chat/chat.service";
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -48,7 +50,8 @@ export function HttpLoaderFactory(http: Http) {
     TelephoneDetailComponent,
     UsersComponent,
     UserEditComponent,
-    HelloworldComponent
+    HelloworldComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
@@ -82,13 +85,15 @@ export function HttpLoaderFactory(http: Http) {
     TelephoneDetailComponent,
     UsersComponent,
     UserEditComponent,
-    HelloworldComponent
+    HelloworldComponent,
+    ChatComponent
   ],
   providers: [
     TodoService,
     UserService,
     TelephoneService,
     AddressService,
+    ChatService,
     ToastService,
     StatusBar,
     SplashScreen,

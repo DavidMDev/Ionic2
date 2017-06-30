@@ -1,4 +1,4 @@
-import {Component, Inject} from "@angular/core";
+import {Component} from "@angular/core";
 import {FormBuilder, Validators, FormControl} from "@angular/forms";
 import {NavController} from "ionic-angular";
 import {ToastService} from "../../toast/toast.service";

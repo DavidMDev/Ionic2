@@ -125,7 +125,7 @@ export class HttpService {
   }
 
   handleError(reject, error) {
-    this.translationService.get(['ERROR', 'LOGGED_OUT', 'REQUIRES_LOG_IN', 'OK', 'LOG_IN']).subscribe(translations => {
+    this.translationService.get(['ERROR', 'LOGGED_OUT', 'REQUIRES_LOG_IN', 'OK']).subscribe(translations => {
       if (error.status === 403) {
         let alert;
         if (this.userLogged) {
@@ -144,12 +144,7 @@ export class HttpService {
           alert = this.alertController.create({
             title: translations.ERROR,
             subTitle: translations.LOGGED_OUT,
-            buttons: [translations.OK, {
-              text: translations.LOG_IN,
-              handler: () => {
-                this.redirectToLogIn();
-              }
-            }]
+            buttons: [translations.OK]
           });
           alert.present();
         }

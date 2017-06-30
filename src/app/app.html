@@ -33,6 +33,9 @@
       <button *ngIf="!isLogged()" ion-item (click)="openPage(signupPage)" menuToggle>
         {{'SIGN_UP' | translate}}
       </button>
+      <button *ngIf="isLogged()" ion-item (click)="openPage(chatPage)" menuToggle>
+        {{'CHAT' | translate}}
+      </button>
       <button *ngIf="isLogged()" ion-item (click)="myProfile()" menuToggle>
         {{'MY_PROFILE' | translate}}
       </button>

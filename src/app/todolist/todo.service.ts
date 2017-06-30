@@ -8,7 +8,7 @@ import {Configuration} from "./../config/config";
 @Injectable()
 export class TodoService {
   private headers = new Headers({'Content-Type': 'application/json'});
-  private tasksUrl = Configuration.API_HOST + "/tasks";
+  private tasksUrl = Configuration.API_HOST + "/api/tasks";
 
   constructor(private http: Http) {
   }
